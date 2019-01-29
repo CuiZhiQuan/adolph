@@ -1,5 +1,6 @@
 package com.transaction.adolph;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -11,6 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 
 @SpringBootApplication
+@MapperScan(basePackages = "com.transaction.adolph.mapper")
 public class AdolphApplication {
 
 	public static void main(String[] args) {
