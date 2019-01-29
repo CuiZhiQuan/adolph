@@ -1,8 +1,11 @@
 package com.transaction.adolph;
 
+import com.transaction.adolph.utils.ConfigReader;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.EnvironmentAware;
+import org.springframework.core.env.Environment;
 
 /**
  * @author cuizhiquan
@@ -13,11 +16,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @MapperScan(basePackages = "com.transaction.adolph.mapper")
-public class AdolphApplication {
+public class AdolphApplication implements EnvironmentAware{
 
 	public static void main(String[] args) {
 		SpringApplication.run(AdolphApplication.class, args);
 	}
 
+	@Override
+	public void setEnvironment(Environment environment) {
+		ConfigReader.env = environment;
+	}
 }
 
