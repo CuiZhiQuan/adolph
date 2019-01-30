@@ -23,13 +23,13 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("/inner/compensate")
 @Api(tags = "补偿事务")
-public class CompensateController {
+public class CompensateInnerController {
 
     @Autowired
     private CompensateService compensateService;
 
     @ApiOperation(value = "注册补偿事务",notes = "事务发起者调用该接口注册补偿事务",httpMethod = "POST")
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(value = "/register",method = RequestMethod.POST)
     public JSONMessage register(@RequestBody @Valid CompensateParam param) {
         return JSONMessage.success("success",compensateService.register(param));
     }
