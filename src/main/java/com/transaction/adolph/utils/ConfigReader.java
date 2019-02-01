@@ -12,6 +12,8 @@ public class ConfigReader {
 
     public static String workerId = "twitter.snowflake.workerId";
 
+    public static String exchanges = "spring.rabbitmq.exchanges";
+
     public static Environment env;
 
     public static String read(String name) {

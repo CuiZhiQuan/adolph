@@ -43,7 +43,7 @@ public class CompensateJob {
     @Autowired
     private RestTemplate restTemplate;
 
-    private static final long rate = 20 * 1000;
+    private static final long CHECK_RATE = 20 * 1000;
 
     private static final int PAGE_INDEX = 1;
 
@@ -52,7 +52,7 @@ public class CompensateJob {
     /**
      * 补偿事务定时任务 20秒 执行一次
      */
-    @Scheduled(fixedRate = rate)
+    @Scheduled(fixedRate = CHECK_RATE)
     //TODO 这里需要加分布式锁
     private void checkTransaction(){
         Example example = this.constructExample();
